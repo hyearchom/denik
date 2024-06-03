@@ -6,9 +6,10 @@
 - poskytne vám to nejen možnost ke zdokonalování, ale zároveň si vytváříte historii, kterou můžete kdykoli v budoucnu zpětně vyhledat
 
 #### Spuštení:
-- `denik.py` je python skript 
+- `denik.py` je python skript
+- skript vyžaduje adresář s názvem `denik` ve stejném adresáři 
 - pro spuštění je potřeba otevřít soubor přes Příkazovou řádku/Terminál
-	*(ve Windows stačí soubor přejmenovat na `denik.pyw` a spustit dvojklikem )
+	*(ve Windows stačí soubor přejmenovat na `denik.pyw` a spustit dvojklikem )*
 
 #### Návod:
 - každé otevření vytvoří jeden záznam s názvem činnosti, které zadáte
