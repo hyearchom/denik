@@ -23,7 +23,7 @@
 
 #### Spuštení:
 - `denik_prenasec.py` je python skript
-- skript vyžaduje přespat cílové umístění v souboru pod názvem CESTA_CILOVY_ADRESAR
+- skript vyžaduje přepsat cílové umístění v souboru pod názvem CESTA_CILOVY_ADRESAR
 - pro spuštění je potřeba otevřít soubor přes Příkazovou řádku/Terminál
 	*(ve Windows stačí soubor přejmenovat na `denik.pyw` a spustit dvojklikem )*
 
