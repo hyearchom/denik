@@ -1,20 +1,63 @@
 #!/usr/bin/env python3
 
+from glob import glob
 import os
 from datetime import datetime
+import argparse
 
 #---Nastavení---
 
+# Přepínače aplikace
+parser = argparse.ArgumentParser(
+                    prog='Deník',
+                    description='Zápis denních aktivit')
+parser.add_argument(
+                '-p', '--prenest',
+                help='Přenést záznamy do zvolené složky',
+                action="store_true")
+
+# Konstanty
 SLOUPEC_OD, SLOUPEC_DO, SLOUPEC_CINNOST = 0,1,2
+CESTA_ZDROJOVY_ADRESAR = './denik/'
+CESTA_CILOVY_ADRESAR = './test/'
 
 # Umístění zdrojové tabulky
 dnesni_den = datetime.today().strftime('%Y-%m-%d')
-
-adresar_skript = os.path.dirname(os.path.abspath(__file__))
-cesta_denik = os.path.join(adresar_skript + '/denik/', dnesni_den + '.md')
+cesta_denik = os.path.join(CESTA_ZDROJOVY_ADRESAR, dnesni_den + '.md')
 
 
-#---Aplikace---
+#---Definování---
+
+# Přenesení záznamů:
+
+def prepinac_preneseni():
+    argumenty = parser.parse_args()
+    return argumenty.prenest
+
+
+def prenest_zaznamy():
+    for zaznam in glob(CESTA_ZDROJOVY_ADRESAR + '*.md'):
+        data = precist_zaznam(zaznam)
+
+        jmeno_souboru = os.path.basename(zaznam)
+        doplnit_zaznam(CESTA_CILOVY_ADRESAR, jmeno_souboru, data)
+
+
+def precist_zaznam(jmeno_souboru):
+    with open(jmeno_souboru, 'r') as soubor:
+        obsah = soubor.read()
+    os.remove(jmeno_souboru)
+    return obsah
+
+
+def doplnit_zaznam(umisteni, jmeno_souboru, doplneni):
+    nadpis = '\n\nPrůběh dne:\n'
+    with open(umisteni + jmeno_souboru, 'a+') as soubor:
+        soubor.write(nadpis + doplneni)
+    print(f'{jmeno_souboru} doplněn')
+
+
+# Vytváření záznamů:
 
 def spustit_aplikaci():
     
@@ -67,6 +110,11 @@ def ulozit_zaznam(vystup):
     print("\nZáznam uložen.")
 
 
+#---Zpracování---
+
 if __name__ == "__main__":
-    spustit_aplikaci()
+    if prepinac_preneseni():
+        prenest_zaznamy()
+    else:
+        spustit_aplikaci()
     input('Dokončeno, zadej cokoli') # Vyčkání stisku klávesy pro ukončení

@@ -19,13 +19,13 @@
 - před uložením záznamu vám aplikace vypíše všechny dnešní zaznamenané aktivity
 
 
-## Přenesení dat
+## Přepínač k přenesení dat
 
 #### Spuštení:
-- `denik_prenasec.py` je python skript
+- skript je nyní možné spustit s přepínačem `--prenest [-p]`
 - skript vyžaduje přepsat cílové umístění v souboru pod názvem CESTA_CILOVY_ADRESAR
-- pro spuštění je potřeba otevřít soubor přes Příkazovou řádku/Terminál
-	*(ve Windows stačí soubor přejmenovat na `denik.pyw` a spustit dvojklikem )*
+- pro spuštění je potřeba otevřít soubor přes Příkazovou řádku/Terminál a zadat:
+    `denik.py --prenest`
 
 #### Návod:    
 - Doplnění o samostatný skript, který slouží:
