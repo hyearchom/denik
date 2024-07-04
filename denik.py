@@ -73,6 +73,9 @@ def spustit_aplikaci():
     hodina = datetime.now().strftime('%H')
     dalsi_hodina = int(hodina) +1
     konec = str(dalsi_hodina)
+    # Korekce vypuštění nuly u jednociferného čísla
+    if len(konec) == 1:
+        konec = '0' + konec
 
     # Vypsání předešlých činností dne
     for radek in obsah:
@@ -80,12 +83,12 @@ def spustit_aplikaci():
 
     # Vstup uživatele pro popis činnosti
     # Volitelně může upravit nabízené hodiny
-    zadano_uzivatelem = input(f'{zacatek}\t{dalsi_hodina}\t***Zadej činnost***\n')
+    zadano_uzivatelem = input(f'{zacatek}\t{konec}\t***Zadej činnost***\n')
     if zadano_uzivatelem:
         if '\t' in zadano_uzivatelem:
             ulozit_zaznam(zadano_uzivatelem + '\n')
         else:
-            ulozit_zaznam(f'{zacatek}\t{dalsi_hodina}\t{zadano_uzivatelem}\n')
+            ulozit_zaznam(f'{zacatek}\t{konec}\t{zadano_uzivatelem}\n')
     
 
 def ziskani_dat_deniku():
