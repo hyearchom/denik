@@ -12,7 +12,8 @@
 	*(ve Windows stačí soubor přejmenovat na `denik.pyw` a spustit dvojklikem )*
 
 #### Návod:
-- každé otevření vytvoří jeden záznam s názvem činnosti, které zadáte
+- každé zápis vytvoří jeden záznam s názvem činnosti, které zadáte
+- prázný zápis (pouze Enter) ukončí aplikaci
 - čas činnosti je zvolen jako interval mezi poslední činností a časem následující celé hodiny
 - pokud si přejete zadat jiný interval, stačí před názvem činnosti zadat hodiny a **oddělit vše tabulátory**
 - záznam se uloží ve formátu `md` pod aktuálním datem do adresáře `/denik`
