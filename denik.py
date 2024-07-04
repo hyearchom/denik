@@ -112,7 +112,7 @@ def ulozit_zaznam(vystup):
     with open(cesta_denik, "a", newline="") as soubor:
         soubor.write(vystup)
 
-    print("\nZáznam uložen.")
+    print("\nZáznam uložen.\n")
 
 
 #---Zpracování---
