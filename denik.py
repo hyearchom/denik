@@ -89,7 +89,9 @@ def spustit_aplikaci():
             ulozit_zaznam(zadano_uzivatelem + '\n')
         else:
             ulozit_zaznam(f'{zacatek}\t{konec}\t{zadano_uzivatelem}\n')
-    
+
+    # Vrátit status, jestli uživatel poskytl data    
+    return bool(zadano_uzivatelem)
 
 def ziskani_dat_deniku():
     # Přečtení dat z tabulky deníku
@@ -119,5 +121,8 @@ if __name__ == "__main__":
     if prepinac_preneseni():
         prenest_zaznamy()
     else:
-        spustit_aplikaci()
+        # zacyklení pro více záznamů
+        ocekavat_data = True
+        while ocekavat_data:
+            ocekavat_data = spustit_aplikaci()
     input('Dokončeno, zadej cokoli') # Vyčkání stisku klávesy pro ukončení
